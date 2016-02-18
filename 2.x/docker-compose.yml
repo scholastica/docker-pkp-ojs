@@ -1,0 +1,35 @@
+version: "2"
+
+services:
+  web:
+    build:
+      context: web/.
+      args:
+        - OJS_VERSION=2.4.8
+        - OJS_PATH=ojs
+    links:
+      # database is available in web under the hostnames "db" and "database"
+      - "db:database"
+    ports:
+      - "80:80"
+  #  volumes:
+  #    - app:/app
+    volumes_from:
+      - data
+  db:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      # some configuration magic happening here, see https://github.com/docker-library/mysql/blob/master/5.7/docker-entrypoint.sh for details
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=ojs
+      - MYSQL_PASSWORD=ojs
+      - MYSQL_DATABASE=ojs
+    volumes_from:
+      - data
+  data:
+    build: data/.
+
+  # TODO integrate caching with https://hub.docker.com/_/memcached/ - see config file
+  # TODO use the environment variables to set the base url in the config file
