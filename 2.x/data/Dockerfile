@@ -8,7 +8,6 @@ RUN mkdir -p /var/ojs/files  \
     && chown www-data:www-data /var/ojs/files \
     && chmod -R ug+w /var/ojs/files
 VOLUME /var/ojs/files
-#WORKDIR /var/ojs/files
 
 # volume for mysql database
 VOLUME /var/lib/mysql

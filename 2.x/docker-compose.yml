@@ -32,7 +32,5 @@ services:
     volumes_from:
       - data
   data:
-    build: data/.
-
-  # TODO integrate caching with https://hub.docker.com/_/memcached/ - see config file
-  # TODO use the environment variables to set the base url in the config file
+    build:
+      context: data/.

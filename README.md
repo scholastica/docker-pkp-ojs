@@ -2,6 +2,9 @@
 **TO DO**
 
 # Run OJS 3.x
+
+_Not actively developed!_
+
 ## Docker Compose
 Create a *docker-compose.yml* file and run ```docker-compose up```.
 ```dockerfile
@@ -23,7 +26,7 @@ mysql:
 
 Run the following commands:
 ```bash
-# to do
+to do...
 ```
 
 # Run OJS 2.x
@@ -51,7 +54,7 @@ To change the installation path of OJS to something other than `/ojs`, please se
 
 ## Configuration
 
-Open the installation page at http://<ip of web container>/<path, e.g. ojs>/index.php. Make at least the following changes:
+Open the installation page at http://[ip of web container]/[path to ojs]/index.php. Make at least the following changes:
 
 * Add admin user credentials
 * Change the file upload directory to `/var/ojs/files`

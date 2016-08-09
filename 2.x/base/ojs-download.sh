@@ -54,7 +54,7 @@ elif [ "${OJS_SVN_URL}" != "NA" ]; then
     apt-get install subversion -y
 
     if [ ${OJS_SVN_USER} != "NA" -a ${OJS_SVN_PASS} != "NA" ]; then
-        svn co ${OJS_SVN_URL} ${OJS_PATH} --username ${OJS_SVN_USER} --password ${OJS_SVN_PASS}
+        svn co ${OJS_SVN_URL} ${OJS_PATH} --quiet --username ${OJS_SVN_USER} --password ${OJS_SVN_PASS}
     else
         svn co ${OJS_SVN_URL} ${OJS_PATH}
     fi
