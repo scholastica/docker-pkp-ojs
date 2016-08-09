@@ -44,7 +44,7 @@ COPY config.TEMPLATE_DOCKER.inc.php config.inc.php
 RUN chown www-data:www-data config.inc.php \
     && chmod ug+rw config.inc.php \
     && chown -R www-data:www-data public \
-    && mkdir cache \
+    #&& mkdir cache \
     && chown -R www-data:www-data cache \
     && chmod -R ug+w cache public
 
