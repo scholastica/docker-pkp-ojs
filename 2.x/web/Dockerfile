@@ -23,7 +23,7 @@ RUN a2enmod rewrite
 WORKDIR /var/www/html
 # can be overridden/set in compose file
 ARG OJS_URL_VERSION="2.4.8-1"
-ARG OJS_PATH="ojs"
+ARG OJS_PATH=""
 ARG OJS_URL_DOWNLOAD="true"
 ARG OJS_GIT_URL="NA"
 ARG OJS_GIT_TAG="NA"
