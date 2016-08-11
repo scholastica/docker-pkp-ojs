@@ -23,7 +23,7 @@ RUN a2enmod rewrite
 WORKDIR /var/www/html
 # can be overridden/set in compose file
 ARG OJS_URL_VERSION="2.4.8-1"
-ARG OJS_PATH=""
+ARG OJS_PATH="."
 ARG OJS_URL_DOWNLOAD="true"
 ARG OJS_GIT_URL="NA"
 ARG OJS_GIT_TAG="NA"
@@ -37,7 +37,8 @@ COPY ojs-download.sh /ojs-download.sh
 RUN /bin/bash /ojs-download.sh
 
 WORKDIR /var/www/html/${OJS_PATH}
-RUN echo "Installed OJS to path" $(pwd)
+RUN echo "Installed OJS to path" $(pwd) "which now has these contents:" \
+    && ls
 
 # Configuring OJS: copy template file, make selected directories writeable (defensive ownership changing)
 COPY config.TEMPLATE_DOCKER.inc.php config.inc.php

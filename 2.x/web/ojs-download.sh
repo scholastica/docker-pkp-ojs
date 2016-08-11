@@ -16,10 +16,15 @@ echo "[OJS DOWNLOADER] Running in " $(pwd) " with parameters: OJS_URL_DOWNLOAD='
 #    && php composer.phar update
 
 if [ "${OJS_URL_DOWNLOAD}" = "true" ]; then
-    echo "[OJS DOWNLOADER] Downloading OJS version ${OJS_URL_VERSION} from URL http://pkp.sfu.ca/ojs/download/ojs-${OJS_URL_VERSION}.tar.gz to ${OJS_PATH}"
+    echo "[OJS DOWNLOADER] Downloading OJS version ${OJS_URL_VERSION} from URL 'http://pkp.sfu.ca/ojs/download/ojs-${OJS_URL_VERSION}.tar.gz' unpacking to '${OJS_PATH}'"
     curl -sSL -O "http://pkp.sfu.ca/ojs/download/ojs-${OJS_URL_VERSION}.tar.gz"
     tar -zxf ojs-${OJS_URL_VERSION}.tar.gz
-    mv ojs-${OJS_URL_VERSION} ${OJS_PATH}
+    if [ "${OJS_PATH}" = "." ]; then
+        mv ojs-${OJS_URL_VERSION}/* .
+        rm -r ojs-${OJS_URL_VERSION}
+    else
+        mv ojs-${OJS_URL_VERSION} ${OJS_PATH}
+    fi
 elif [ "${OJS_GIT_URL}" != "NA" ]; then
     echo "[OJS DOWNLOADER] Cloning OJS from git repo at ${OJS_GIT_URL} using tag ${OJS_GIT_TAG} to ${OJS_PATH} (after installing git first)"
     apt-get install git -y
