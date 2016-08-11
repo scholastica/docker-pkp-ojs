@@ -20,7 +20,7 @@ services:
     volumes_from:
       - data
   db:
-    image: mysql
+    image: mariadb:5
     ports:
       - "3306:3306"
     environment:
