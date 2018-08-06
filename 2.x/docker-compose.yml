@@ -7,7 +7,7 @@ services:
       args:
         - OJS_URL_DOWNLOAD=true
         #- OJS_VCS_CLEANUP=false
-        #- OJS_URL_VERSION=2.4.7-1
+        - OJS_URL_VERSION=2.4.5
         #- OJS_PATH=ojs
         #- OJS_GIT_URL=https://github.com/pkp/ojs.git
         #- OJS_GIT_TAG=ojs-2_4_7-1

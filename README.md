@@ -1,6 +1,3 @@
-# Tags
-**TO DO**
-
 # Run OJS 3.x
 
 _Not actively developed!_
